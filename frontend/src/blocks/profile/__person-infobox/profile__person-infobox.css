@@ -1,0 +1,9 @@
+.profile__person-infobox {
+    width: 168.75px;
+    height: 127.5px;
+    align-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}

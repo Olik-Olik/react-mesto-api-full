@@ -1,0 +1,11 @@
+.profile__button-container {
+    width: 150px;
+    height: 50px;
+}
+
+@media screen and (min-width: 320px) and (max-width: 961px) {
+    .profile__button-container {
+        width: 282px;
+        height: 46px;
+    }
+}

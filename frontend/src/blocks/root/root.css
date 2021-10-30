@@ -1,0 +1,10 @@
+.root { /*основной фон*/
+    margin: 0 auto;
+    font-family: 'Inter', 'Arial', 'Helvetica', sans-serif;
+    background-color: #000000;
+    /* color: #FFFFFF;*/
+    font-style: normal;
+    max-width: 1280px;
+    min-width: 320px;
+    width: 100%;
+}

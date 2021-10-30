@@ -1,0 +1,19 @@
+/* основная форма cо словами  password email*/
+.auth__form-login {
+    display: flex;
+    width: 358px;
+    background: none;
+    font-weight: 400;
+    line-height: 17px;
+    font-size: 14px;
+    color: #CCCCCC;
+
+    align-items: flex-start;
+    flex-direction: column;
+    margin: 0 auto;
+    justify-content: center;
+
+    /* padding-bottom:  13px;*/
+
+
+}

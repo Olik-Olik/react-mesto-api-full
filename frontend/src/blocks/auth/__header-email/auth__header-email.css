@@ -1,0 +1,12 @@
+.auth__header-email {
+    font-size: 18px;
+    line-height: 22px;
+    text-align: end;
+    color: #FFFFFF;
+    display: flex;
+    flex-direction: row;
+    margin-right: 24px;
+    /* cursor: pointer;*/
+    text-decoration: none;
+}
+

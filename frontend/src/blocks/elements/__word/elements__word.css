@@ -1,0 +1,20 @@
+.elements__word {
+    background-color: #FFFFFF;
+    font-weight: 900;
+    color: black;
+    background-repeat: no-repeat;
+    background-size: contain;
+    z-index: 10;
+    justify-content: center;
+    font-size: 24px;
+    padding: 0;
+    margin: 26px 21px 31px 15px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 188px; /*чтобы лайки были в конце*/
+}
+
+
+
+

@@ -1,0 +1,30 @@
+.footer {
+    display: flex;
+    margin: 0 auto;
+    color: #545454;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    font-style: normal;
+    justify-content: flex-start;
+    text-align: left;
+    max-width: 880px;
+}
+
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+    .footer {
+        max-width: 60%;
+    }
+}
+
+@media screen and (min-width: 320px)and (max-width: 767px) {
+    .footer {
+        justify-content: flex-start;
+        max-width: 282px;
+    }
+}
+
+
+
+

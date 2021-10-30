@@ -1,0 +1,29 @@
+.popup__page { /*это слова редактировать профиль в попапе*/
+    max-width: 430px;
+    height: 23px;
+    left: 461px;
+    top: 195px;
+    padding-top: 34px;
+    font-weight: 900;
+    font-size: 24px;
+    line-height: 29px;
+    color: #000000;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+@media screen and (min-width: 320px) and (max-width: 500px) {
+    .popup__page {
+        font-weight: 900;
+        font-size: 18px;
+        line-height: 22px;
+        color: #000000;
+        /*margin-top: 25px;
+        margin-bottom: 45px;*/
+        padding-top: 0;
+        margin-bottom: 25px;
+        margin-top: 25px;
+
+    }
+
+}

@@ -1,0 +1,14 @@
+.popup__image-word {
+    background-color: transparent;
+    font-weight: 400;
+    color: white;
+    background-repeat: no-repeat;
+    background-size: contain;
+    z-index: 10;
+    justify-content: center;
+    padding: 0;
+    /* margin: 26px 21px 31px 15px;*/
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}

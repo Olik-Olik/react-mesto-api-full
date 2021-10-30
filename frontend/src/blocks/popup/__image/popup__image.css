@@ -1,0 +1,8 @@
+.popup__image {
+    width: 75vw;
+    height: 75vh;
+    object-position: center;
+    object-fit: cover;
+    display: block;
+    z-index: 101;
+}

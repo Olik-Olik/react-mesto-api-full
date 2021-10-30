@@ -1,0 +1,21 @@
+.auth__signin-link {
+    width: 358px;
+    height: 14px;
+    bottom: 150px;
+    align-items: center;
+    font-size: 14px;
+    line-height: 17px;
+    text-decoration: none;
+    color: #FFFFFF;
+    position: relative;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    background: none;
+    border-style: none;
+    justify-content: center;
+    font-weight: 400;
+
+    /*     color:yellow;*/
+
+}

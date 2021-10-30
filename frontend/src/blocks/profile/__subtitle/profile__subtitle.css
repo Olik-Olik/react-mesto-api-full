@@ -1,0 +1,32 @@
+.profile__subtitle {
+    text-align: start;
+    justify-content: flex-start;
+    padding-top: 16px;
+    padding-bottom: 36px;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+    color: #FFFFFF;
+    /*  color: rebeccapurple;*/
+    flex-direction: row;
+    margin: 0 auto 0 0;
+    max-width: 294px;
+    display: inline-block;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+@media screen and (min-width: 320px) and (max-width: 495px ) {
+    .profile__subtitle {
+        font-size: 14px;
+        line-height: 17px;
+        padding-top: 14px;
+        padding-bottom: 36px;
+        align-items: center;
+        justify-content: center;
+        flex-direction: row;
+        text-align: center;
+        margin: 0 auto;
+    }
+}

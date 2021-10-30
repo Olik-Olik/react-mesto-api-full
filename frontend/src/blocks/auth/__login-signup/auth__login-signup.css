@@ -1,0 +1,24 @@
+.auth__login-signup {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: normal;
+    width: 358px;
+    height: 60px;
+    color: #FFFFFF;
+    position: absolute;
+    background: black;
+    /*  height: 17px;*/
+    margin: 0 auto;
+
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 17px;
+    /* identical to box height */
+
+    text-align: center;
+
+    top: 200px;
+    color: aquamarine;
+}

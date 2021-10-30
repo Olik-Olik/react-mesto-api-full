@@ -1,0 +1,19 @@
+.auth__tooltip-phraze {
+    /* Вы успешно зарегистрировались! */
+    position: absolute;
+    width: 358px;
+    height: 58px;
+    font-style: normal;
+    font-weight: 900;
+    font-size: 24px;
+    line-height: 29px;
+    text-align: center;
+    color: #000000;
+}
+
+@media screen and (max-width: 500px) {
+    .auth__tooltip-phraze {
+        width: 244px;
+        height: 48px;
+    }
+}

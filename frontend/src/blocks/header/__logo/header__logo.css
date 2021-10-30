@@ -1,0 +1,19 @@
+.header__logo {
+    position: inherit;
+    max-width: 142px;
+    border-radius: 0;
+    align-self: flex-start;
+    align-content: flex-start;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    margin: 0;
+}
+
+@media screen and (min-width: 320px) and (max-width: 540px) {
+    .header__logo {
+        max-width: 104px;
+        padding-left: 27px;
+        padding-top: 0;
+        margin: 0;
+    }
+}

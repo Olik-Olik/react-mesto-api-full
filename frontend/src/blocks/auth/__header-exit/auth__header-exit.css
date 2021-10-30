@@ -1,0 +1,24 @@
+.auth__header-exit {
+    font-size: 18px;
+    line-height: 22px;
+    text-align: end;
+
+    display: flex;
+    flex-direction: row;
+    /* margin-right: 24px;*/
+    justify-content: flex-end;
+    cursor: pointer;
+    align-items: flex-end;
+    text-decoration: none;
+    /*    text-decoration: black;*/
+
+    color: #FFFFFF;
+
+
+}
+
+.auth__header-exit:hover {
+    cursor: pointer;
+    text-decoration: none;
+    color: #A9A9A9
+}

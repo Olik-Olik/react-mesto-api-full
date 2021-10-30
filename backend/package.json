@@ -1,0 +1,35 @@
+{
+  "name": "backend",
+  "version": "0.1.0",
+  "description": "Проект express-mesto бэкенд",
+  "author": "Ольга Санина",
+  "main": "app.js",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "celebrate": "^15.0.0",
+    "cookie-parser": "^1.4.5",
+    "dotenv": "^10.0.0",
+    "escape-html": "^1.0.3",
+    "express": "^4.17.1",
+    "express-validator": "^6.12.2",
+    "express-winston": "^4.2.0",
+    "mongoose": "^5.13.9",
+    "validator": "^13.6.0",
+    "winston": "^3.3.3",
+    "jsonwebtoken": "^8.5.1"
+  },
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js",
+    "lint": "eslint .",
+    "prod": "cross-env , NODE_ENV=production webpack"
+  },
+  "homepage": "https://github.com/Olik-Olik/express-mesto",
+  "devDependencies": {
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-plugin-import": "^2.24.2",
+    "nodemon": "^2.0.13"
+  }
+}

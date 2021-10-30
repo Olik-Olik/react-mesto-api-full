@@ -1,0 +1,21 @@
+.elements__image {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    justify-items: center;
+    position: relative;
+    height: 282px;
+    width: 280px; /*-1 px слева и -1px справа*/
+    list-style-type: none;
+    background-size: cover;
+
+}
+
+.elements__image::after {
+    content: '';
+    display: block;
+    width: 282px;
+    height: 282px;
+    background-color: rgba(0, 0, 0, .3);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}

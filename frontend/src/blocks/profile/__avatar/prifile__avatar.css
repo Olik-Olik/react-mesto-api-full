@@ -1,0 +1,29 @@
+.profile__avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    position: absolute;
+}
+
+.profile__avatar:hover {
+    opacity: 0.3;
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.8);
+
+}
+
+.profile__foto-edit-button {
+    /*  display: block;*/
+}
+
+/*
+@media screen and (max-width: 320px) {
+    .profile__avatar {
+        margin: 0 auto;
+        align-items: center;
+        justify-content: center;
+    }
+}*/

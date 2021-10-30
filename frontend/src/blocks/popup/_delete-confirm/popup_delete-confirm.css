@@ -1,0 +1,16 @@
+/*
+.popup_delete-confirm{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: fixed; !*для подложки прячу попап на видимой части сверху*!
+    width: 430px;
+    height: 181px;
+ !*   left: 425px;*!
+    !*top: 270px;*!
+
+    background: #FFFFFF;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+}*/

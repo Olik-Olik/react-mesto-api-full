@@ -1,0 +1,22 @@
+.elements__combine {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    background-image: url('/src/images/Rectangle.svg');
+    background-color: #FFFFFF;
+    object-fit: contain;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    font-weight: 900;
+    color: black;
+    background-repeat: no-repeat;
+    background-size: contain;
+    z-index: 10;
+    font-size: 24px;
+    padding: 0;
+    /* margin: 26px 21px 31px 15px;*/
+    margin: 0;
+    align-items: baseline;
+}

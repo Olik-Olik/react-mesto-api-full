@@ -1,0 +1,19 @@
+.auth__signup-link-Do-Register {
+    /*  margin: 150px;*/
+    color: #FFFFFF;
+    align-self: flex-end;
+    background: #FFFFFF;
+    width: 358px;
+    height: 17px;
+    align-content: space-between;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 17px;
+    text-align: center;
+}
+
+.auth__signup-link-Do-Register {
+    cursor: pointer;
+    color: #A9A9A9
+}

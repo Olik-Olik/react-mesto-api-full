@@ -1,0 +1,40 @@
+.popup__field { /*туточки держим стили для формы в попапе*/
+    width: 100%;
+    padding-top: 30px;
+    border: white;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(0, 0, 1, 0.2);
+    font-weight: 400;
+    font-size: 14px;
+    padding-bottom: 13px;
+    line-height: 17px;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+/*
+
+@media screen and (min-width: 320px) and (max-width: 500px) {
+    .popup__field {
+        padding-top: 10px;
+    }
+}
+*/
+
+/*
+.popup__field:invalid {
+    border: 1px solid red;  !* красная рамка для некорректных данных *!
+}
+*/
+
+/*
+.popup__field:invalid:required {
+    background-image: linear-gradient( yellow,red,lightgreen);
+}
+
+.popup__field:valid {
+    border: 1px solid green;
+.popup__field:invalid {
+    border: 1px  dashed red;
+}*/
+

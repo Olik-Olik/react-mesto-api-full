@@ -1,0 +1,13 @@
+.profile__avatar-edit-container {
+    /* width: 47px;
+     height: 47px;*/
+    justify-content: space-around;
+    display: flex;
+}
+
+.profile__avatar-edit-container:hover {
+    opacity: 0.3;
+    background-color: transparent;
+    visibility: visible;
+    cursor: pointer;
+}

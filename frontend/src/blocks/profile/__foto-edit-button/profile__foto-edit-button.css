@@ -1,0 +1,31 @@
+.profile__foto-edit-button {
+    width: 26px;
+    height: 26px;
+    /*
+    top: 47px;
+    left: 47px;
+    */
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url(/src/images/Vector.svg);
+    border: none;
+    /*display: none;*/
+    opacity: 0.5;
+    position: relative;
+    /* visibility: hidden;*/
+    /* background-color: rgba(0, 0, 0, 0 );*/
+}
+
+.profile__foto-edit-button:hover {
+    opacity: 1;
+    background-color: transparent;
+    visibility: visible;
+    /*   background-color: rgba(0, 0, 0, 0.8);*/
+    cursor: pointer;
+}
+

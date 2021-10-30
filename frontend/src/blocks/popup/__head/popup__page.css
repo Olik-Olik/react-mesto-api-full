@@ -1,0 +1,27 @@
+.popup__page {
+    font-weight: 900;
+    font-size: 24px;
+    line-height: 29px;
+    font-style: normal;
+    /* padding-top: 34px;*/
+    margin-top: 0;
+    border: 0;
+    padding-right: 41px;
+    padding-top: 25px;
+    margin-bottom: 24px;
+
+
+}
+
+@media screen and (min-width: 320px) and (max-width: 500px) {
+    .popup__page {
+        line-height: 22px;
+        font-size: 18px;
+        padding-top: 0;
+        font-weight: 900;
+        max-width: 282px;
+        max-height: 22px;
+        margin-top: 0;
+        padding-right: 0;
+    }
+}
