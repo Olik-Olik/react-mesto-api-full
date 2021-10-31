@@ -1,4 +1,5 @@
-export const BASE_URL = 'https://auth.nomoreparties.co';
+// export const BASE_URL = 'https://auth.nomoreparties.co';
+export const BASE_URL = 'http://localhost:3624';
 
 export const checkToken = (token) => {
     return fetch(`${BASE_URL}/users/me`, {

@@ -27,7 +27,7 @@
     "lint": "eslint .",
     "prod": "cross-env , NODE_ENV=production webpack"
   },
-  "homepage": "https://github.com/Olik-Olik/express-mesto",
+
   "devDependencies": {
     "eslint": "^7.32.0",
     "eslint-config-airbnb": "^18.2.1",
