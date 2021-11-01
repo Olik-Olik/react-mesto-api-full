@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-extraneous-dependencies
 const bcrypt = require('bcryptjs');
 // eslint-disable-next-line import/no-extraneous-dependencies
 const jwt = require('jsonwebtoken');
@@ -6,6 +7,7 @@ const NotFoundError = require('../errors/NotFoundError');// 404
 const ConflictError = require('../errors/ConflictError');
 const UnAuthorizedError = require('../errors/UnAuthorizedError');
 
+const { NODE_ENV, JWT_SECRET_KEY } = process.env;
 module.exports.getUsers = (req, res, next) => {
   User.find({})
     .then((users) => res.status(200).send({ users }))
@@ -91,7 +93,8 @@ module.exports.login = (req, res, next) => {
       throw new UnAuthorizedError();
     } else {
       const token = jwt.sign({ _id: user.data.id },
-        'some-secret-key',
+        NODE_ENV === 'production' ? JWT_SECRET_KEY : 'dev-secret',
+       // 'some-secret-key',
         { expiresIn: '7d' });
       res.status(201).send({ token });
     }

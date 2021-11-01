@@ -6,7 +6,7 @@ const ForbiddenError = require('../errors/ForbiddenError');// 403
 module.exports.getCards = (req, res) => {
   Card.find({})
     .populate('user')
-    .then((cards) => res.status(200).send({ cards }));
+    .then((cards) => res.status(200).send(cards));
 };
 
 module.exports.createCard = (req, res, next) => {
@@ -17,7 +17,7 @@ module.exports.createCard = (req, res, next) => {
     name: newName,
     link: newLink,
   })
-    .then((card) => res.status(200).send({ card }))
+    .then((card) => res.status(200).send(card))
     .catch((err) => {
       if (err.name === 'ValidationError') {
         next(new BadRequestError('Невалидный id пользователя '));
@@ -54,7 +54,7 @@ module.exports.likeCard = (req, res, next) => {
     { new: true, runValidators: true })
     .then((card) => {
       if (card) {
-        res.status(200).send({ card });
+        res.status(200).send(card);
       } else {
         throw new NotFoundError('Нет такого id для лайка');
       }
@@ -71,7 +71,7 @@ module.exports.dislikeCard = (req, res, next) => {
     { new: true, runValidators: true })
     .then((card) => {
       if (card) {
-        res.status(200).send({ card });
+        res.status(200).send(card);
       } else {
         throw new NotFoundError({ message: 'Нет такого id для лайка' });
       }

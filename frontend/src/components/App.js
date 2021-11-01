@@ -72,6 +72,7 @@ export default function App(props) {
         if (loggedIn) {
             api.getInitialCards()
                 .then((res) => {
+                    console.log(res);
                     setCards(res)
                 })
                 .catch((err) => console.log('MAMA, Карточки не  получены!!!: ' + err.toString()))
@@ -233,6 +234,7 @@ export default function App(props) {
             .then((res) => {
                 console.log('d');
                 localStorage.setItem('jwt', res.token);
+                api.handleToken();
                 setEmail(emmail);
                 setLoggedIn(true);
                 console.log('Залогинились 1!');

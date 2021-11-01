@@ -4,7 +4,13 @@ class Api {
     constructor(arr) {
         this._address = arr.address;
         this._headers = arr.headers;
+        this._authTocken = null;
     }
+
+    handleToken(){
+        this._authTocken = localStorage.getItem('jwt');
+        this._headers.Authorization = `Bearer ${this._authTocken}`;
+     }
 
 // если сервер ответит ок- то выдать значение  если нет-отклоняется промис
     _handleResponse(response) {
@@ -18,6 +24,7 @@ class Api {
 
 //получение карточек с сервера внешний метод
     getInitialCards() {
+        this.handleToken();
         return fetch(this._address + '/cards',
             {
                 headers: this._headers,
@@ -28,6 +35,7 @@ class Api {
 
 //добавляем карточки
     submitNewCard(cardInfo) {
+        this.handleToken();
         return fetch(this._address + '/cards',
             {
                 headers: {
@@ -43,6 +51,7 @@ class Api {
     setUserInfo(inputNameUserInfo, inputAboutUserInfo) {
         console.log(inputNameUserInfo);
         console.log(inputAboutUserInfo);
+        this.handleToken();
         return fetch(this._address + '/users' + '/me', {
             headers: this._headers,
             method: 'POST', //Роst запрос через body
@@ -56,6 +65,7 @@ class Api {
 
 
     submitRemoveCard(cardId) { //идентифицируем карточку
+        this.handleToken();
         return fetch(this._address + '/cards/' + cardId, {
             headers: this._headers,
             method: 'DELETE'
@@ -65,6 +75,7 @@ class Api {
 
 
     like(cardId) {
+        this.handleToken();
         return fetch(this._address + '/cards/likes/' + cardId, {
             headers: this._headers,
             method: 'PUT'
@@ -73,6 +84,7 @@ class Api {
     }
 
     dislike(cardId) {
+        this.handleToken();
         return fetch(this._address + '/cards/likes/' + cardId, {
             headers: this._headers,
             method: 'DELETE'
@@ -83,6 +95,7 @@ class Api {
 
 // _id — это идентификатор пользователя, в данном случае вашего.
     getUserInfo() {
+        this.handleToken();
         return fetch(this._address + '/users/me',
             {
                 headers: this._headers,
@@ -92,6 +105,7 @@ class Api {
     }
 
     submitUserInfo(userInfo) {
+        this.handleToken();
         const userUpdate = {
             'name': userInfo.name,
             'about': userInfo.about
@@ -109,6 +123,7 @@ class Api {
     }
 
     submitUserAvatar(userInfo) {
+        this.handleToken();
         const avaUpdate = {
             'avatar': userInfo.avatar
         }
@@ -127,9 +142,10 @@ class Api {
 }
 
 const api = new Api({
-    address: 'https://mesto.nomoreparties.co/v1/cohort-26',
+  /*  address: 'https://mesto.nomoreparties.co/v1/cohort-26',*/
+    address: 'http://localhost:3624',
     headers: {
-        authorization: 'b12ac09d-a522-46ec-9026-b6918737b3ea'
+        // authorization: 'b12ac09d-a522-46ec-9026-b6918737b3ea'
     }
 });
 
