@@ -39,7 +39,7 @@ class Api {
         return fetch(this._address + '/cards',
             {
                 headers: {
-                    'authorization': this._headers.authorization,
+                    'Authorization': this._headers.Authorization,
                     'Content-Type': 'application/json'
                 },
                 method: 'POST',      //Роst запрос через body
@@ -113,7 +113,7 @@ class Api {
         return fetch(this._address + '/users/me',
             {
                 headers: {
-                    'authorization': this._headers.authorization,
+                    'Authorization': this._headers.Authorization,
                     'Content-Type': 'application/json'
                 },
                 method: 'PATCH',
@@ -130,7 +130,7 @@ class Api {
         return fetch(this._address + '/users/me/avatar',
             {
                 headers: {
-                    'authorization': this._headers.authorization,
+                    'Authorization': this._headers.Authorization,
                     'Content-Type': 'application/json'
                 },
                 method: 'PATCH',

@@ -26,12 +26,12 @@ app.disable('x-powered-by');
 // для выявления приложений на базе Express и активации целенаправленных атак
 const limiter = rateLimit({
   windowMs: 60 * 60 * 1000, // 60 minutes
-  max: 100, // limit each IP to 100 requests per windowMs
+  max: 10000, // limit each IP to 100 requests per windowMs
   message: 'limit each IP to 100 requests  Превышен лимит запросов с Вашего IP',
 });
 const apiLimiter = rateLimit({
   windowMs: 60 * 60 * 1000, // 60 minutes
-  max: 100, // start blocking after 100 requests
+  max: 10000, // start blocking after 100 requests
   message: 'start blocking after 100 requests Заблокировано по кол-ву запросов ',
 });
 
@@ -73,8 +73,8 @@ app.use((req, res, next) => {
     res.header('Access-Control-Allow-Methods', DEFAULT_ALLOWED_METHODS);
 
     //   res.header('Access-Control-Allow-Headers', requestHeaders);
-    return res.end();
-    // return res.status(200).send();
+//    return res.end();
+    return res.status(200).send();
   }
   next();
 });
