@@ -1,7 +1,6 @@
 import React, {useContext} from "react";
 import {CurrentUserContext} from '../contexts/CurrentUserContext';
 
-
 function Card(props) {
     const currentUser = useContext(CurrentUserContext);
 // Определяем, является ли текущий юзер- я,  владельцем  карточки
@@ -36,8 +35,6 @@ function Card(props) {
     function handleCardLike() {
         props.onCardLike(props.card);
     }
-
-
     return (
         //      <CurrentUserContext.Provider value={currentUser}>
         <div className="elements__card"

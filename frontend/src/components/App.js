@@ -10,7 +10,7 @@ import EditProfilePopup from "./EditProfilePopup";
 import ConfirmDeletePopup from "./ConfirmDeletePopup";
 import {CurrentUserContext} from "../contexts/CurrentUserContext";
 import api from "../utils/Api";
-import {BrowserRouter, Redirect, Route, Switch} from 'react-router-dom';
+import {BrowserRouter, Redirect, Route, Switch, useHistory} from 'react-router-dom';
 import Login from './Login';
 import Register from './Register';
 import ProtectedRoute from './ProtectedRoute';
@@ -33,39 +33,42 @@ export default function App(props) {
     const [infoSuccess, setInfoSuccess] = useState(false);
     const [credential, setCredential] = useState({});
     const [isRegResOpen, setIsRegResOpen] = useState(false);
-
+    const history = useHistory(); /////
     //проверка токена  хуком
     function hukUseEffectToken() {
         // если у пользователя есть токен в localStorage,
         // эта функция проверит валидность токена
-        const jwt = localStorage.getItem('jwt');
-        if (jwt) {
-            console.log("has JWT");
+        const token = localStorage.getItem('token');
+        if (token) {
+            console.log("токен есть JWT");
             // проверим токен в локалсторадж
-            auth.checkToken(jwt)
+            auth.checkToken(token)
                 // здесь можем получить данные пользователя!
                 // поместим их в стейт внутри App.js
                 .then((res) => {
                     console.log('Ответ есть!');
                     setLoggedIn(true);
-                    setEmail(res.data.email);
+                    setEmail(res.email);
                     setIsLoading(false);
+                    //history.push('/');
                 })
                 .catch((err) => {
                     console.log('Ответа нет! ' + err.toString());
                     setLoggedIn(false);
                     setIsLoading(false);
+                    setEmail('');
                 })
         } else {
             console.log('Токена нету!!!');
             setLoggedIn(false);
             setIsLoading(false);
+            setEmail('');
         }
     }
 
     useEffect(() => {
         hukUseEffectToken();
-    }, []);
+    }, [loggedIn]);
 
 //card
     useEffect(() => {
@@ -100,7 +103,8 @@ export default function App(props) {
             'avatar': userData.avatar
         })
             .then(data => {
-                setCurrentUser(data);
+              //  setCurrentUser(data);
+                setCurrentUser({ currentUser, avatar:data.avatar});
                 closeAllPopups()
             })
             .catch((err) => {
@@ -232,8 +236,8 @@ export default function App(props) {
         return auth
             .login(password, emmail)
             .then((res) => {
-                console.log('d');
-                localStorage.setItem('jwt', res.token);
+               // console.log('vasa');
+                localStorage.setItem('token', res.token);
                 api.handleToken();
                 setEmail(emmail);
                 setLoggedIn(true);
@@ -244,6 +248,26 @@ export default function App(props) {
                 setLoggedIn(false);
             })
     }
+/*
+
+    function handleLogin(password, emmail) {
+        return auth
+            .login(password, emmail)
+            .then((res) => {
+                // console.log('vasa');
+                if (res.token) {
+                api.handleToken();
+                setEmail(emmail);
+                setLoggedIn(true);
+                //history.push("/");
+                console.log('Залогинились 1!');}
+            })
+            .catch((err) => {
+                console.log('Не залогинились :( ' + err.toString());
+                setLoggedIn(false);
+            })
+    }
+*/
 
     function handleRegister(password, email) {
         return auth
@@ -251,6 +275,7 @@ export default function App(props) {
             .then((res) => {
                 setInfoSuccess(true);
                 setIsRegResOpen(true);
+                history.push("/signin"); /////
                 console.log("1");
             })
             .catch((err) => {
@@ -265,7 +290,9 @@ export default function App(props) {
 //out off
     function handleSignOut() {
         console.log("2 - logout");
-        localStorage.removeItem('jwt')
+        localStorage.removeItem('token');
+        setCurrentUser({});
+        setEmail("");
         setLoggedIn(false);
     }
 

@@ -6,6 +6,8 @@ const ForbiddenError = require('../errors/ForbiddenError');// 403
 module.exports.getCards = (req, res) => {
   Card.find({})
     .populate('user')
+  //  .then((cards) => res.send(cards ))
+  //  .catch((err) => res.status(500).send(` Server Mistake ${err.message}`));
     .then((cards) => res.status(200).send(cards));
 };
 

@@ -1,4 +1,5 @@
 require('dotenv').config();
+
 console.log(process.env.NODE_ENV);
 
 const cors = require('cors');
@@ -10,12 +11,13 @@ const { errors } = require('celebrate');
 const router = require('express').Router(); // корневой роутер
 const { logger } = require('express-winston');
 const rateLimit = require('express-rate-limit');
-const {requestLogger, errorLogger} =require('./middlewares/logger');
+const { requestLogger, errorLogger } = require('./middlewares/logger');
 const routes = require('./routes/users');
 const cardRoutes = require('./routes/cards');
 require('./middlewares/auth');
 const NotFoundError = require('./errors/NotFoundError');
 const { createUser, login } = require('./controllers/users');
+
 const { PORT = 3624 } = process.env;
 
 const app = express();
@@ -45,19 +47,39 @@ const auth = require('./middlewares/auth');
 const { loginValidate, userValidate } = require('./validator/validator');
 
 // Массив доменов, с которых разрешены кросс-доменные запросы
-/* const allowedCors = [
-  'http://back.nomoredomains.work',
-  'http://front.nomoredomains.work',
-  'http://localhost:3000',
+const httpCors = [
+  /* 'http://back.nomoredomains.work',
+  'http://front.nomoredomains.work', */
   'http://localhost:3624',
-/*  'https://front.nomoredomains.work',
-  'https://localhost:3000',
+  'http://localhost:3000',
+  /* 'https://front.nomoredomains.work',
+  'https://localhost:3624',
   'https://localhost:3624',
   'https://front.nomoredomains.work',
-  'https://back.nomoredomains.work'
+  'https://back.nomoredomains.work', */
 ];
+// const options = { origin: httpCors};
+const options = {
+  origin: httpCors,
+  method: ['GET, HEAD,PUT,PATCH,POST,DELETE'],
+  preflightContinue: false,
+  optionsSuccessStatus: 200,
+  credentials: true,
+};
+
+/*
+const options = {
+  origin: [
+    'http://localhost:3624'],
+  method: ['GET, HEAD,PUT,PATCH,POST,DELETE'],
+  preflightContinue: false,
+  optionsSuccessStatus: 200,
+  credentials: true,
+};
+
+app.use(cors(options));
 */
-// eslint-disable-next-line consistent-return
+/*
 app.use((req, res, next) => {
   // const { origin } = req.headers;
   //  if (allowedCors.includes(origin)) {
@@ -65,20 +87,18 @@ app.use((req, res, next) => {
   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
   //  }
   const { method } = req;
-
   const DEFAULT_ALLOWED_METHODS = 'GET,HEAD,PUT,PATCH,POST,DELETE';
   // сохраняем список заголовков исходного запроса
   //  const requestHeaders = req.headers['access-control-request-headers'];
   if (method === 'OPTIONS') {
     res.header('Access-Control-Allow-Methods', DEFAULT_ALLOWED_METHODS);
-
     //   res.header('Access-Control-Allow-Headers', requestHeaders);
-//    return res.end();
+    //    return res.end();
     return res.status(200).send();
   }
   next();
 });
-
+*/
 // mongoose.connect(url, { useNewUrlParser: true }, { useNewUrlParser: true });
 
 mongoose.connect(url,
@@ -89,7 +109,7 @@ mongoose.connect(url,
 
 mongoose.set('useCreateIndex', true);
 
-app.use(cors());
+app.use(cors(options));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));

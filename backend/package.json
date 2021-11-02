@@ -22,8 +22,10 @@
     "winston": "^3.3.3"
   },
   "scripts": {
-    "start": "node app.js",
-    "dev": "nodemon app.js",
+    "start": "react-scripts start",
+    "eject": "react-scripts eject",
+    "test": "react-scripts test",
+    "dev": "nodemon backend/app.js",
     "lint": "eslint .",
     "prod": "cross-env , NODE_ENV=production webpack"
   },

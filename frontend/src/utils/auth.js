@@ -1,4 +1,8 @@
 // export const BASE_URL = 'https://auth.nomoreparties.co';
+/*
+export const BASE_URL = process.env.NODE_ENV === 'production' ?
+      'https://mesto.nomoreparties.co/v1/cohort-26' :'http://localhost:3624';
+*/
 export const BASE_URL = 'http://localhost:3624';
 
 export const checkToken = (token) => {
@@ -25,9 +29,10 @@ export const register = (password, email) => {
         body: JSON.stringify({
             password: password,
             email: email
-        })
-    })
-        .then((response) => handleResponse(response));
+        }),})/*
+            .then((response) => {return response.json();})
+*/
+        .then((response) => handleResponse(response))
 }
 
 function handleResponse(response) {
@@ -50,5 +55,14 @@ export const login = (password, email) => {
             email: email
         })
     })
-        .then((response) => handleResponse(response))
+/*       // .then((response) => handleResponse(response))
+        .then((response) => {return response.json()})
+    // и туточки в localstorage!!!
+        .then ((enterToken) => {
+            if (enterToken.token) {
+                localStorage.setItem('token', enterToken.token);
+                return enterToken;
+            }
+        })*/
+        .then((response) => handleResponse(response));
 }
