@@ -4,7 +4,7 @@ const BadRequestError = require('../errors/BadRequestError');// 400 когда �
 const ForbiddenError = require('../errors/ForbiddenError');// 403
 
 module.exports.getCards = (req, res) => {
-  Card.find({})
+  Card.find({}).sort({ createdAt: -1 })
     .populate('user')
   //  .then((cards) => res.send(cards ))
   //  .catch((err) => res.status(500).send(` Server Mistake ${err.message}`));
