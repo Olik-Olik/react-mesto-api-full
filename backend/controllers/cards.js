@@ -43,7 +43,10 @@ module.exports.deleteCard = (req, res, next) => {
       if (card.owner.toString() === req.userId) {
         Card.deleteOne({ _id: cardId })
           .then(() => res.status(200).send({ message: 'Карточка удалена.' }));
-      } else { throw new ForbiddenError('Чужие карточки не удаляют'); }
+      } else {
+        console.log("Чужая карточка!");
+        throw new ForbiddenError('Чужие карточки не удаляют');
+      }
     }).catch(next);
 };
 

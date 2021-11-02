@@ -13,7 +13,7 @@ const { idParamsValidator } = require('../validator/validator');
 cardsRouter.get('/cards', getCards);
 cardsRouter.post('/cards', cardValidate, createCard);
 cardsRouter.delete('/cards/:id', idParamsValidator, deleteCard);
-cardsRouter.put('/cards/:id/likes', idParamsValidator, likeCard);
-cardsRouter.delete('/cards/:id/likes', idParamsValidator, dislikeCard);
+cardsRouter.put('/cards/likes/:id', idParamsValidator, likeCard);
+cardsRouter.delete('/cards/likes/:id', idParamsValidator, dislikeCard);
 
 module.exports = cardsRouter;
