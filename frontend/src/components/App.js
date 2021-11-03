@@ -103,8 +103,8 @@ export default function App(props) {
             'avatar': userData.avatar
         })
             .then(data => {
-              //  setCurrentUser(data);
-                setCurrentUser({ currentUser, avatar:data.avatar});
+                setCurrentUser(data);
+                //setCurrentUser({ currentUser, avatar:data.avatar});
                 closeAllPopups()
             })
             .catch((err) => {

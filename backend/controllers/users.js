@@ -10,7 +10,7 @@ const UnAuthorizedError = require('../errors/UnAuthorizedError');
 const { NODE_ENV, JWT_SECRET_KEY } = process.env;
 module.exports.getUsers = (req, res, next) => {
   User.find({})
-    .then((users) => res.status(200).send({ users }))
+    .then((users) => res.status(200).send(users))
     .catch(next);
 };
 
@@ -19,7 +19,7 @@ module.exports.getUser = (req, res, next) => {
   return User.findById({ _id: userId })
     .then((user) => {
       if (user) {
-        res.status(200).send({ user });
+        res.status(200).send(user);
       } else {
         throw new NotFoundError('Пользователь по данному id отсутствует  в базе');
       }
@@ -80,7 +80,7 @@ module.exports.updateUser = (req, res, next) => {
     .orFail(() => {
       throw new NotFoundError('Пользователь по данному id отсутствует  в базе');
     })
-    .then((user) => res.status(200).send({ user }))
+    .then((user) => res.status(200).send(user))
     .catch(next);
 };
 
@@ -110,6 +110,6 @@ module.exports.updateAvatar = (req, res, next) => {
     .orFail(() => {
       throw new NotFoundError('Пользователь c данным id отсутствует  в базе');
     })
-    .then((user) => res.status(200).send({ user }))
+    .then((user) => res.status(200).send(user))
     .catch(next);
 };
