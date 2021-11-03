@@ -6,9 +6,9 @@ const ForbiddenError = require('../errors/ForbiddenError');// 403
 module.exports.getCards = (req, res) => {
   Card.find({}).sort({ createdAt: -1 })
     .populate('user')
-  //  .then((cards) => res.send(cards ))
-  //  .catch((err) => res.status(500).send(` Server Mistake ${err.message}`));
-    .then((cards) => res.status(200).send(cards));
+    .then((cards) => res.send(cards))
+    .catch((err) => res.status(500).send(` Server Mistake ${err.message}`));
+  //  .then((cards) => res.status(200).send(cards));
 };
 
 module.exports.createCard = (req, res, next) => {
@@ -42,9 +42,9 @@ module.exports.deleteCard = (req, res, next) => {
       console.log(`user  id ${req.userId}`);
       if (card.owner.toString() === req.userId) {
         Card.deleteOne({ _id: cardId })
-          .then(() => res.status(200).send({ message: 'Карточка удалена.' }));
+          .then(() => res.status(200).send('Карточка удалена.'));
       } else {
-        console.log("Чужая карточка!");
+        console.log('Чужая карточка!');
         throw new ForbiddenError('Чужие карточки не удаляют');
       }
     }).catch(next);
@@ -53,7 +53,6 @@ module.exports.deleteCard = (req, res, next) => {
 module.exports.likeCard = (req, res, next) => {
   const cardId = req.params.id;
   const myUserId = req.userId;
-
   Card.findByIdAndUpdate({ _id: cardId },
     { $addToSet: { likes: myUserId } },
     { new: true, runValidators: true })
@@ -76,9 +75,9 @@ module.exports.dislikeCard = (req, res, next) => {
     { new: true, runValidators: true })
     .then((card) => {
       if (card) {
-        res.status(200).send(card);
+        res.status(200).send({card});
       } else {
-        throw new NotFoundError({ message: 'Нет такого id для лайка' });
+        throw new NotFoundError('Нет такого id для лайка');
       }
     })
     .catch(next);

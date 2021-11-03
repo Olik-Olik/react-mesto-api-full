@@ -4,29 +4,37 @@ import {CurrentUserContext} from '../contexts/CurrentUserContext';
 function Card(props) {
     const currentUser = useContext(CurrentUserContext);
 // Определяем, является ли текущий юзер- я,  владельцем  карточки
-    const isOwn = props.card.owner._id === currentUser._id;
+  //  const isOwn = props.card.owner._id === currentUser._id;
+    const isOwn = props.card.owner === currentUser._id;
 
 // Определяем, есть ли у карточки лайк, поставленный текущим пользователем - мной
-    const isLiked = props.card.likes.some(i => i._id === currentUser._id);
+ //   const isLiked = props.card.likes.some(i => i._id === currentUser._id);
+    const isLiked = props.card.likes.some((i) => i === currentUser._id);
+
 // Создаём переменную, которую после зададим в `className` для кнопки удаления
-    const cardDeleteButtonClassName =
+  //  const cardDeleteButtonClassName =(
         /*`card__delete-button ${props.isOwn ? 'card__delete-button_visible' : 'card__delete-button_hidden'}`*/
 // Если собственник = текущему id юзера, то мусорка активна : иначе - не удалить.
 
-        `${isOwn ? 'elements__trash' : 'elements__trash-hidden'}`;
+    //    `${isOwn ? 'elements__trash' : 'elements__trash-hidden'}`);
 
-    /*  ` ${props.isOwn === currentUser._id ? '': 'elements__trash-hidden'}`*/
+    /* ` ${props.isOwn === currentUser._id ? '': 'elements__trash-hidden'}` `elements__trash ${isOwn ? 'elements__trash' : "invisible"}`*/
+
+    const cardDeleteButtonClassName = `elements__trash ${isOwn ? 'elements__trash' : 'elements__trash-hidden'}`
+
+
+
 
 // Создаём переменную, которую после зададим в `className` для кнопки лайка
 // Если лайкнуто текущим мной-чернеет лайк
-    const cardLikeButtonClassName = (
-        `${isLiked ? 'elements__like_active' : 'elements__like'}`);
+    const cardLikeButtonClassName =
+        `elements__like_active ${isLiked ? 'elements__like_active' : 'elements__like'}`;
 
-    function handleCardClick(evt) {
+    function handleCardClick() {
         props.onCardClick(props.card);
     }
 
-    function handleCardDeleteClick() //handleCardClick
+    function handleCardDeleteClick(evt) //handleCardClick
     {
         props.onCardDelete(props.card);
     }
@@ -37,14 +45,13 @@ function Card(props) {
     }
     return (
         //      <CurrentUserContext.Provider value={currentUser}>
-        <div className="elements__card"
-            /*      onClick={handleCardClick}*/
+        <div className="elements__card" key={props._id}
         >
             <div className="elements__trash-image">
                 <button aria-label='Удаление элемента'
                         type="button"
                         onClick={handleCardDeleteClick}
-                        className={cardDeleteButtonClassName}/>
+                        className={cardDeleteButtonClassName} />
                 <img alt={props.alt}
                      className="elements__image" /* {props.title}*/
                      onClick={handleCardClick}

@@ -205,7 +205,8 @@ export default function App(props) {
 
     function handleCardDeleteClick(card) {
         console.log("Anything interesting - delete");
-        const isOwn = card.owner._id === currentUser._id;
+       //  const isOwn = card.owner._id === currentUser._id;
+        const isOwn = card.owner === currentUser._id;
         if (isOwn) {
             api.submitRemoveCard(card._id)
                 .then(newArrCards => {
