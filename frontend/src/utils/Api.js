@@ -45,7 +45,7 @@ class Api {
         return fetch(this._address + '/cards',
             {
                 headers: {
-                    //...this._headers, Authorization: `Bearer ${handleToken}`,
+                    //this._headers, Authorization: `Bearer ${handleToken}`,
                     'Authorization': this._headers.Authorization,
                     'Content-Type': 'application/json'
                 },
@@ -55,39 +55,21 @@ class Api {
             .then((response) => this._handleResponse(response));
     }
 
-/*    setUserInfo(inputNameUserInfo, inputAboutUserInfo) {
-        console.log(inputNameUserInfo);
-        console.log(inputAboutUserInfo);
-      //  this.handleToken();
-        return fetch(this._address + '/users/' + '/me', {
-            headers: {...this._headers, Authorization: `Bearer ${handleToken}`},
-            //this._headers,
-            method: 'POST', //Роst запрос через body
-            body: JSON.stringify({
-                name: inputNameUserInfo,
-                about: inputAboutUserInfo
-            })
-        })
-            .then((response) => this._handleResponse(response));
-    }*/
-
-
     submitRemoveCard(cardId) { //идентифицируем карточку
          this.handleToken();
         return fetch(this._address + '/cards/' + cardId, {
-            //headers:{ ...this._headers, Authorization: `Bearer ${handleToken}`},
+            //headers:{ this._headers, Authorization: `Bearer ${handleToken}`},
             headers: { 'Authorization': this._headers.Authorization },
             method: 'DELETE'
         })
             .then((response) => this._handleResponse(response));
     }
 
-
     like(cardId) {
         this.handleToken();
         return fetch(this._address + '/cards/likes/' + cardId, {
             headers: { 'Authorization': this._headers.Authorization },
-            //headers:{ ...this._headers, Authorization: `Bearer ${handleToken}`},
+            //headers:{ this._headers, Authorization: `Bearer ${handleToken}`},
             method: 'PUT'
         })
             .then((response) => this._handleResponse(response));
@@ -108,7 +90,7 @@ class Api {
         this.handleToken();
         return fetch(this._address + '/users/me',
             {
-                //headers: { ...this._headers, Authorization: `Bearer ${handleToken}`},
+                //headers: { this._headers, Authorization: `Bearer ${handleToken}`},
                 headers: { 'Authorization': this._headers.Authorization },
                 method: 'GET'
             })
@@ -124,7 +106,7 @@ class Api {
         return fetch(this._address + '/users/me',
             {
                 headers: {
-                    //...this._headers, Authorization: `Bearer ${handleToken}`,
+                    //this._headers, Authorization: `Bearer ${handleToken}`,
                    'Authorization': this._headers.Authorization,
                    'Content-Type': 'application/json'
                 },
@@ -172,3 +154,22 @@ const api = new Api({
 
 export default api;
 
+
+
+
+
+/*    setUserInfo(inputNameUserInfo, inputAboutUserInfo) {
+        console.log(inputNameUserInfo);
+        console.log(inputAboutUserInfo);
+      //  this.handleToken();
+        return fetch(this._address + '/users/' + '/me', {
+            headers: {this._headers, Authorization: `Bearer ${handleToken}`},
+            //this._headers,
+            method: 'POST', //Роst запрос через body
+            body: JSON.stringify({
+                name: inputNameUserInfo,
+                about: inputAboutUserInfo
+            })
+        })
+            .then((response) => this._handleResponse(response));
+    }*/

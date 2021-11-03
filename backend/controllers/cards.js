@@ -75,7 +75,7 @@ module.exports.dislikeCard = (req, res, next) => {
     { new: true, runValidators: true })
     .then((card) => {
       if (card) {
-        res.status(200).send({card});
+        res.status(200).send(card);
       } else {
         throw new NotFoundError('Нет такого id для лайка');
       }
