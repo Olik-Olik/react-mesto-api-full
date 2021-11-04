@@ -1,6 +1,6 @@
-//import React from "react";
-const handleToken = localStorage.getItem('token');
-console.log(handleToken);
+// import React from "react";
+// const handleToken = localStorage.getItem('token');
+// console.log(handleToken);
 
 class Api {
     constructor(arr) {
@@ -10,11 +10,10 @@ class Api {
     }
 
     handleToken(){
-        this._authTocken = localStorage.getItem('jwt');
+        this._authTocken = localStorage.getItem('token');
         this._headers.Authorization = `Bearer ${this._authTocken}`;
     }
 
-    
 // если сервер ответит ок- то выдать значение  если нет-отклоняется промис
     _handleResponse(response) {
         if (response.ok) {
@@ -98,7 +97,7 @@ class Api {
     }
 
     submitUserInfo(userInfo) {
-       // this.handleToken();
+        this.handleToken();
         const userUpdate = {
             'name': userInfo.name,
             'about': userInfo.about
@@ -117,7 +116,7 @@ class Api {
     }
 
     submitUserAvatar(userInfo) {
-       // this.handleToken();
+        this.handleToken();
         const avaUpdate = {
             'avatar': userInfo.avatar
         }
@@ -146,7 +145,7 @@ const api = new Api({
 
 const api = new Api({
     /*  address: 'https://mesto.nomoreparties.co/v1/cohort-26',*/
-    address: 'http://localhost:3624',
+    address: 'https://back.nomoredomains.work',
     headers: {
         // authorization: 'b12ac09d-a522-46ec-9026-b6918737b3ea'
     }

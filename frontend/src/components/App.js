@@ -276,7 +276,7 @@ export default function App(props) {
             .then((res) => {
                 setInfoSuccess(true);
                 setIsRegResOpen(true);
-                history.push("/signin"); /////
+                // history.push("/signin"); /////
                 console.log("1");
             })
             .catch((err) => {
