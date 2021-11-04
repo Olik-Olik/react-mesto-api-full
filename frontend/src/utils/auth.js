@@ -1,9 +1,9 @@
 // export const BASE_URL = 'https://auth.nomoreparties.co';
-/*
+
 export const BASE_URL = process.env.NODE_ENV === 'production' ?
-      'https://mesto.nomoreparties.co/v1/cohort-26' :'http://localhost:3624';
-*/
-export const BASE_URL = 'http://localhost:3624';
+      'https://back.nomoredomains.work' :'http://localhost:3624';
+
+/* export const BASE_URL = 'http://localhost:3624'; */
 
 export const checkToken = (token) => {
     return fetch(`${BASE_URL}/users/me`, {

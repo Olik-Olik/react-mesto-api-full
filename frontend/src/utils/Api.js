@@ -146,7 +146,7 @@ const api = new Api({
 
 const api = new Api({
     /*  address: 'https://mesto.nomoreparties.co/v1/cohort-26',*/
-    address: 'http://localhost:3624',
+    address: 'https://back.nomoredomains.work',
     headers: {
         // authorization: 'b12ac09d-a522-46ec-9026-b6918737b3ea'
     }
