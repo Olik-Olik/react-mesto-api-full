@@ -8,8 +8,6 @@
 ## Ссылка на сайт, размещенный на Яндекс.Облаке.
 ##Публичный IP-адрес сервера  62.84.117.163
 
-# GitHub
-## https://olik-olik.github.io/mesto/
 
 ## Домен
 #### https://back.nomoredomains.work
