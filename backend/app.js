@@ -1,6 +1,4 @@
-import { config } from 'dotenv';
-
-config();
+require('dotenv').config();
 
 // console.log(process.env.NODE_ENV);
 
@@ -56,7 +54,7 @@ const httpCors = [
   'https://front.nomoredomains.work',
   'http://back.nomoredomains.work',
   'http://front.nomoredomains.work',
-  'http://localhost:3626',
+  'http://localhost:3624',
   'http://localhost:3000',
 ];
 
