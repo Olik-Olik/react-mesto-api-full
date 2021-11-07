@@ -8,13 +8,10 @@
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
     "celebrate": "^15.0.0",
-    "cookie-parser": "^1.4.5",
     "cross-env": "^7.0.3",
     "dotenv": "^10.0.0",
-    "escape-html": "^1.0.3",
     "express": "^4.17.1",
     "express-rate-limit": "^5.5.0",
-    "express-validator": "^6.12.2",
     "express-winston": "^4.2.0",
     "helmet": "^4.6.0",
     "jsonwebtoken": "^8.5.1",
@@ -24,7 +21,6 @@
     "winston": "^3.3.3"
   },
   "scripts": {
-    "start": "react-scripts start",
     "eject": "react-scripts eject",
     "test": "react-scripts test",
     "dev": "nodemon backend/app.js",
@@ -34,7 +30,6 @@
   "devDependencies": {
     "cors": "^2.8.5",
     "eslint": "^7.32.0",
-    "eslint-config-airbnb": "^18.2.1",
     "eslint-plugin-import": "^2.24.2",
     "nodemon": "^2.0.13"
   }

@@ -1,8 +1,10 @@
+import { config } from 'dotenv';
 
-require('dotenv').config();
+config();
 
-//console.log(process.env.NODE_ENV);
+// console.log(process.env.NODE_ENV);
 
+// eslint-disable-next-line import/no-extraneous-dependencies
 const cors = require('cors');
 const express = require('express');
 const helmet = require('helmet');
@@ -41,8 +43,6 @@ const apiLimiter = rateLimit({
 });
 */
 
-app.use(limiter);
-
 // only apply to requests that begin with /api/
 // app.use('/api/', apiLimiter);
 
@@ -56,14 +56,14 @@ const httpCors = [
   'https://front.nomoredomains.work',
   'http://back.nomoredomains.work',
   'http://front.nomoredomains.work',
-  'http://localhost:3624',
+  'http://localhost:3626',
   'http://localhost:3000',
 ];
 
 const options = {
   origin: httpCors,
   method: ['GET,HEAD,PUT,PATCH,POST,DELETE'],
-  preflightContinue:false,
+  preflightContinue: false,
   optionsSuccessStatus: 200,
   credentials: true,
 };
@@ -80,13 +80,12 @@ mongoose.connect(url,
 
 mongoose.set('useCreateIndex', true);
 
-
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // Логгер запросов до  роутов
 app.use(requestLogger);
-
+app.use(limiter);
 
 app.get('/crash-test', () => {
   setTimeout(() => {
@@ -102,15 +101,17 @@ app.use(auth);// все роуты ниже этой строки будут з�
 app.use(routes);
 app.use(cardRoutes);
 app.use(() => {
-   throw new NotFoundError('Нет такой страницЫ');
+  throw new NotFoundError('Нет такой страницЫ');
 });
-
 // errorLogger нужно подключить после обработчиков роутов и до обработчиков ошибок
 app.use(errorLogger);
 
 app.use((err, req, res, next) => {
   const { statusCode = 500, message } = err;
-  res.status(statusCode).send({ message: statusCode === 500 ? `На сервере произошла ошибк: ${err.toString()}` : message });
+  res.status(statusCode).send({
+    message: statusCode === 500
+      ? `На сервере произошла ошибк: ${err.toString()}` : message,
+  });
   next();
 });
 
